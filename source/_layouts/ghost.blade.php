@@ -4,25 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ $page->meta_description or $page->siteDescription }}">
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ $page->getUrl() }}"/>
-    <meta property="og:title" content="{{ $page->og['title'] ?? $page->siteName }}"/>
-    <meta property="og:description" content="{{ $page->og['description'] ?? $page->siteName }}" />
-    <meta property="og:image" content="{{ $page->og['image'] ?? $page->cover }}" />
-
     <title>{{ $page->title ?? $page->siteName }}</title>
-
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ mix('css/screen.css', 'assets/build') }}">
     @stack('styles')
+
+    <meta name="description" content="{!! $page->meta['description'] ?? $page->siteDescription !!}">
+    <link rel="canonical" href="{{ $page->getUrl() }}" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    @stack('meta')
+
     <link rel="home" href="{{ $page->baseUrl }}">
     <link href="/feed.rss" type="application/atom+xml" rel="alternate" title="{{ $page->siteName }} Feed">
-    @stack('meta')
 
     @if ($page->production)
             <!-- Insert analytics code here -->
