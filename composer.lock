@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07cacddcc0a2079afee2aa426df33b5b",
+    "content-hash": "60bc7786273c3571df61e191c3d0cb9d",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1583,60 +1583,6 @@
                 "static"
             ],
             "time": "2018-12-21T14:18:45+00:00"
-        },
-        {
-            "name": "tightenco/jigsaw-blog-template",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tightenco/jigsaw-blog-template.git",
-                "reference": "bf5962132842b4decd7320ffe33231aaefd6975f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/jigsaw-blog-template/zipball/bf5962132842b4decd7320ffe33231aaefd6975f",
-                "reference": "bf5962132842b4decd7320ffe33231aaefd6975f",
-                "shasum": ""
-            },
-            "require": {
-                "samdark/sitemap": "^2.2",
-                "tightenco/jigsaw": "^1.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "App\\Listeners\\": "listeners/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Stauffer",
-                    "email": "matt@tighten.co"
-                },
-                {
-                    "name": "Anthony Terrell",
-                    "email": "anthony@tighten.co"
-                },
-                {
-                    "name": "Keith Damiani",
-                    "email": "keith@tighten.co"
-                }
-            ],
-            "description": "Blog starter template for Jigsaw static site generator by Tighten",
-            "keywords": [
-                "blog",
-                "generator",
-                "jigsaw",
-                "site",
-                "starter",
-                "static",
-                "template"
-            ],
-            "time": "2018-12-21T14:14:16+00:00"
         }
     ],
     "packages-dev": [],

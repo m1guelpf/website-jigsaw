@@ -3,4 +3,5 @@
 /build_production/
 /node_modules/
 /vendor/
+/source/assets/
 .DS_Store
