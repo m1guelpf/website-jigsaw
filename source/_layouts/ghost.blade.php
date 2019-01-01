@@ -21,8 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('css/screen.css', 'assets/build') }}">
     @stack('styles')
     <link rel="home" href="{{ $page->baseUrl }}">
-    <link rel="icon" href="/favicon.ico">
-        <link href="/feed.rss" type="application/atom+xml" rel="alternate" title="{{ $page->siteName }} Feed">
+    <link href="/feed.rss" type="application/atom+xml" rel="alternate" title="{{ $page->siteName }} Feed">
     @stack('meta')
 
     @if ($page->production)
