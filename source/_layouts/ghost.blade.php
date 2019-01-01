@@ -40,15 +40,7 @@
                         <h1><a href="{{ $page->baseUrl }}">{{ $page->siteName }}</a></h1>
                     </div>
                     <div class="header-nav">
-                        <nav class="nav-wrap">
-                            <label for="toggle" class="nav-label hamburger hamburger-minus">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
-                            </label>
-                            <input type="checkbox" id="toggle" class="nav-toggle">
-                            @include('_nav.menu')
-                        </nav>
+                        @include('_nav.menu')
                     </div>
                 </header>
             </div>
@@ -56,7 +48,7 @@
         <footer class="section-footer">
             <div class="footer-wrap wrap flex">
                 <div class="footer-nav">
-                    @include('_nav.menu')
+                    @include('_nav.menu-footer')
                 </div>
                 <div class="footer-social-links flex">
                     <a href="https://twitter.com/m1guelpf" target="_blank" rel="noopener">@include('_icons.twitter')</a>
