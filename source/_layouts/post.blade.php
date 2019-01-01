@@ -1,5 +1,9 @@
 @extends('_layouts.ghost')
 
+@section('body-class', 'post-template '.collect($page->tags)->map(function($tag) {
+    return "tag-{$tag['slug']}";
+})->implode(' '))
+
 @push('styles')
     <link rel="stylesheet" type="text/css" href="{{ mix('css/prism.css', 'assets/build') }}" />
 @endpush
