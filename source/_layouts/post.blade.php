@@ -5,7 +5,7 @@
 })->implode(' '))
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/prism.css', 'assets/build') }}" />
+    <style>{{ inline(mix('css/prism.css', 'assets/build')) }}</style>
 @endpush
 
 @push('meta')
@@ -105,7 +105,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ mix('js/post.js', 'assets/build') }}"></script>
+    <script>{{ inline(mix('js/post.js', 'assets/build')) }}</script>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>commentBox('5675594515742720-proj');</script>
 @endpush
