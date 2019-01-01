@@ -22,7 +22,7 @@
     @stack('styles')
     <link rel="home" href="{{ $page->baseUrl }}">
     <link rel="icon" href="/favicon.ico">
-        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="{{ $page->siteName }} Atom Feed">
+        <link href="/feed.rss" type="application/atom+xml" rel="alternate" title="{{ $page->siteName }} Feed">
     @stack('meta')
 
     @if ($page->production)
