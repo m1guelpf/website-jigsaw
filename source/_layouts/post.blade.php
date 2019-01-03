@@ -9,6 +9,7 @@
 @endpush
 
 @push('meta')
+<link rel="amphtml" href="{{ $page->getUrl().'/amp' }}" />
     @include('_components.meta')
 @endpush
 
