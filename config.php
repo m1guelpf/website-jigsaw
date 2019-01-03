@@ -18,13 +18,13 @@ return [
     'collections' => [
         'posts' => [
             'sort' => '-date',
-            'path' => '{slug}',
+            'path' => ['web' => '{slug}', 'amp' => '{slug}/amp'],
             'items'=> function() {
                 $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:false&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
                     return [
-                        'extends' => is_null($post->custom_template) || $post->custom_template == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post->custom_template),
+                        'extends' => ['web' =>is_null($post->custom_template) || $post->custom_template == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post->custom_template), 'amp' => '_layouts.amp'],
                         'title' => $post->title,
                         'filename' => $post->slug,
                         'slug' => $post->slug,
