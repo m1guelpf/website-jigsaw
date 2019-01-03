@@ -3,10 +3,13 @@
 namespace App\Handlers;
 
 use TightenCo\Jigsaw\PageData;
+use Predmond\HtmlToAmp\Environment;
+use Predmond\HtmlToAmp\AmpConverter;
 use TightenCo\Jigsaw\File\OutputFile;
 use TightenCo\Jigsaw\View\ViewRenderer;
 use TightenCo\Jigsaw\File\TemporaryFilesystem;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
+use Predmond\HtmlToAmp\Converter\Extensions\YoutubeConverter;
 
 class GhostHandler
 {
@@ -81,6 +84,10 @@ class GhostHandler
             $this->getEscapedMarkdownContent($file)
         ));
 
+        if ($extends == '_layouts.amp') {
+            $html = $this->getAmpHtml($html);
+        }
+
         $pageData->set('postContent', $html);
 
         $wrapper = $this->view->renderString(
@@ -124,5 +131,13 @@ class GhostHandler
     private function parseFrontMatter($file)
     {
         return $this->parser->getFrontMatter($file->getContents());
+    }
+
+    public function getAmpHtml(string $content) : string
+    {
+        $env = (Environment::createDefaultEnvironment())
+            ->addConverter(new YoutubeConverter())
+
+        return (new AmpConverter($env))->convert($content);
     }
 }
