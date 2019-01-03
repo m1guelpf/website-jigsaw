@@ -40,7 +40,7 @@ class DownloadImages
         return $this->getAllImages($posts, $jigsaw)->reject(function($post) {
             return $post->isEmpty() || is_null($post->first());
         })->flatten()->unique()->filter(function($url) {
-            return ! is_null($url) && is_null($host = parse_url($url, PHP_URL_HOST));
+            return ! is_null($url) && is_null(parse_url($url, PHP_URL_HOST));
         })->mapWithKeys(function($path) use($destination){
             return [$destination.$path => 'https://staging.miguelpiedrafita.com'.$path];
         })->toArray();
