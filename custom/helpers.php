@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\AmpScripts;
 use Illuminate\Support\HtmlString;
 
 function inline($assetPath)
@@ -10,4 +11,9 @@ function inline($assetPath)
     }
     $pathParts = explode('?', $assetPath);
     return new HtmlString(file_get_contents("source{$pathParts[0]}"));
+}
+
+function get_amp_scripts(string $content) : array
+{
+    return (new AmpScripts($content))->generate();
 }

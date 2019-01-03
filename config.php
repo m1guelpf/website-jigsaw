@@ -60,6 +60,7 @@ return [
                                 'internal' => $tag->visibility != 'public',
                             ];
                         })->toArray(),
+                        'amp_scripts' => get_amp_scripts($post->html),
                     ];
                 });
             }
