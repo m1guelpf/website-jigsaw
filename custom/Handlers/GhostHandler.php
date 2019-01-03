@@ -5,6 +5,7 @@ namespace App\Handlers;
 use TightenCo\Jigsaw\PageData;
 use Predmond\HtmlToAmp\Environment;
 use Predmond\HtmlToAmp\AmpConverter;
+use App\AMP\CloudinaryImageConverter;
 use TightenCo\Jigsaw\File\OutputFile;
 use TightenCo\Jigsaw\View\ViewRenderer;
 use TightenCo\Jigsaw\File\TemporaryFilesystem;
@@ -137,6 +138,7 @@ class GhostHandler
     {
         $env = (Environment::createDefaultEnvironment())
             ->addConverter(new YoutubeConverter())
+            ->addConverter(new CloudinaryImageConverter());
 
         return (new AmpConverter($env))->convert($content);
     }
