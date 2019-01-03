@@ -20,7 +20,7 @@ return [
             'sort' => '-date',
             'path' => '{slug}',
             'items'=> function() {
-                $posts = json_decode(file_get_contents('https://staging.miguelpiedrafita.com/ghost/api/v0.1/posts/?limit=all&include=tags&client_id=ghost-frontend&client_secret=42cb36947c51&filter=page:false&absolute_urls=false'))->posts;
+                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:false&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
                     return [
@@ -68,7 +68,7 @@ return [
             'sort' => '-date',
             'path' => '{slug}',
             'items'=> function() {
-                $posts = json_decode(file_get_contents('https://staging.miguelpiedrafita.com/ghost/api/v0.1/posts/?limit=all&include=tags&client_id=ghost-frontend&client_secret=42cb36947c51&filter=page:true&absolute_urls=false'))->posts;
+                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:true&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
                     return [
@@ -117,7 +117,7 @@ return [
             'path' => 'tag/{slug}',
             'extends' => '_layouts.tag',
             'items'=> function() {
-                $posts = json_decode(file_get_contents('https://staging.miguelpiedrafita.com/ghost/api/v0.1/posts/?limit=all&include=tags&client_id=ghost-frontend&client_secret=42cb36947c51&absolute_urls=false'))->posts;
+                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
                     return collect($post->tags);
