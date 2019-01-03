@@ -3,8 +3,8 @@
 use Illuminate\Support\Carbon;
 
 return [
-    'baseUrl' => '',
-    'production' => false,
+    'baseUrl' => env('APP_URL', 'https://miguelpiedrafita.com'),
+    'production' => env('NODE_ENV', 'production') == 'production',
     'siteName' => 'Miguel Piedrafita',
     'cover' => 'https://i.imgur.com/74A2KrN.jpg',
     'siteDescription' => '16-year-old developer & maker',
