@@ -1,6 +1,10 @@
 <?php
 
+use Symfony\Component\Dotenv\Dotenv;
+
 require_once 'vendor/autoload.php';
+
+(new Dotenv)->load(__DIR__ . '/.env');
 
 // @var $container \Illuminate\Container\Container
 // @var $events \TightenCo\Jigsaw\Events\EventBus

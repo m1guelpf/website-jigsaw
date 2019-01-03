@@ -6,3 +6,4 @@
 /source/assets/
 .DS_Store
 /cache/
+.env
