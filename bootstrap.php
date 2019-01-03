@@ -4,7 +4,9 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require_once 'vendor/autoload.php';
 
-(new Dotenv)->load(__DIR__ . '/.env');
+if (file_exists($envPath = __DIR__ . '/.env')) {
+    (new Dotenv)->load($envPath);
+}
 
 // @var $container \Illuminate\Container\Container
 // @var $events \TightenCo\Jigsaw\Events\EventBus
