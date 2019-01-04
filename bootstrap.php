@@ -35,3 +35,6 @@ $container->bind(\App\Listeners\DownloadImages::class, function ($c) {
 $events->afterCollections(\App\Listeners\DownloadImages::class);
 $events->afterBuild(\App\Listeners\GenerateSitemap::class);
 $events->afterBuild(\App\Listeners\GenerateIndex::class);
+$events->afterBuild(function(\TightenCo\Jigsaw\Jigsaw $jigsaw) {
+    $jigsaw->writeOutputFile('404.html', $jigsaw->readOutputFile('404/index.html'));
+});
