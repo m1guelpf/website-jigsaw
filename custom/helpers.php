@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\AmpScripts;
+use App\Helpers\ReadingTime;
 use Illuminate\Support\HtmlString;
 
 function inline($assetPath)
@@ -16,4 +17,9 @@ function inline($assetPath)
 function get_amp_scripts(string $content) : array
 {
     return (new AmpScripts($content))->generate();
+}
+
+function reading_time(string $content, bool $hasFeatureImage) : string
+{
+    return (new ReadingTime($content, $hasFeatureImage))->compute();
 }

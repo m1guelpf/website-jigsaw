@@ -61,6 +61,7 @@ return [
                             ];
                         })->toArray(),
                         'amp_scripts' => get_amp_scripts($post->html),
+                        'reading_time' => reading_time($post->html, isset($post->feature_image)),
                     ];
                 });
             }
