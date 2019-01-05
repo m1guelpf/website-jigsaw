@@ -8,6 +8,8 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     @include('_components.meta')
+
+    <link rel="canonical" href="{{ $page->getBaseUrl().'/'.$page->slug }}">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,600,400"/>
     <style amp-custom>
         html {
