@@ -117,8 +117,8 @@
         </script>
     @endif
 
-    @yield('scripts')
-    @yield('footer')
+    @stack('scripts')
+    @stack('footer')
 </body>
 
 </html>
