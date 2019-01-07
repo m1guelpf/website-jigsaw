@@ -19,7 +19,7 @@ return [
         'posts' => [
             'sort' => '-date',
             'path' => ['web' => '{slug}', 'amp' => '{slug}/amp'],
-            'items'=> function() {
+            'items'=> function () {
                 $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:false&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
@@ -53,7 +53,7 @@ return [
                             'footer' => base64_encode($post->codeinjection_foot),
                         ],
                         'template' => $post->custom_template,
-                        'tags' => collect($post->tags)->map(function($tag) {
+                        'tags' => collect($post->tags)->map(function ($tag) {
                             return [
                                 'name' => $tag->name,
                                 'slug' => $tag->slug,
@@ -69,7 +69,7 @@ return [
         'pages' => [
             'sort' => '-date',
             'path' => '{slug}',
-            'items'=> function() {
+            'items'=> function () {
                 $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:true&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
@@ -103,7 +103,7 @@ return [
                             'footer' => base64_encode($post->codeinjection_foot),
                         ],
                         'template' => $post->custom_template,
-                        'tags' => collect($post->tags)->map(function($tag) {
+                        'tags' => collect($post->tags)->map(function ($tag) {
                             return [
                                 'name' => $tag->name,
                                 'slug' => $tag->slug,
@@ -118,16 +118,16 @@ return [
             'sort' => '-date',
             'path' => 'tag/{slug}',
             'extends' => '_layouts.tag',
-            'items'=> function() {
+            'items'=> function () {
                 $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&absolute_urls=false'))->posts;
 
                 return collect($posts)->map(function ($post) {
                     return collect($post->tags);
-                })->reject(function($tags) {
+                })->reject(function ($tags) {
                     return $tags->isEmpty();
-                })->flatten()->unique('slug')->reject(function($tag) {
+                })->flatten()->unique('slug')->reject(function ($tag) {
                     return $tag->visibility != 'public';
-                })->map(function($tag) use($posts){
+                })->map(function ($tag) use ($posts) {
                     return [
                         'name' => $tag->name,
                         'slug' => $tag->slug,
@@ -137,11 +137,11 @@ return [
                         'meta_title' => $tag->meta_title,
                         'meta_description' => $tag->meta_description,
                         'date' => $tag->created_at,
-                        'posts' =>  collect($posts)->filter(function($post) use($tag) {
+                        'posts' =>  collect($posts)->filter(function ($post) use ($tag) {
                             return collect($post->tags)->contains('slug', $tag->slug);
-                        })->map(function($post) {
+                        })->map(function ($post) {
                             return [
-                                'tags' => collect($post->tags)->map(function($tag) {
+                                'tags' => collect($post->tags)->map(function ($tag) {
                                     return [
                                         'name' => $tag->name,
                                         'slug' => $tag->slug,
