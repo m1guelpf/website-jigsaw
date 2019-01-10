@@ -27,7 +27,7 @@ class AmpScripts
     {
         if (! collect($this->dom->getElementsByTagName('img'))->map(function ($img) {
             return $img->getAttribute('src');
-        })->filter(function($url) {
+        })->filter(function ($url) {
             return Str::endsWith($url, '.gif');
         })->isEmpty()) {
             $this->scripts[] = '<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>';
@@ -38,7 +38,7 @@ class AmpScripts
     {
         if (! collect($this->dom->getElementsByTagName('iframe'))->isEmpty()) {
             $this->scripts[] = '<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>';
-            }
+        }
     }
 
     protected function handleAudio() : void

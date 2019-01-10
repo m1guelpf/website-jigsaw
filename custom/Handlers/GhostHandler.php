@@ -14,18 +14,17 @@ use Predmond\HtmlToAmp\Converter\Extensions\YoutubeConverter;
 
 class GhostHandler
 {
-    
     private $temporaryFilesystem;
     private $parser;
     private $view;
-    
+
     public function __construct(TemporaryFilesystem $temporaryFilesystem, FrontMatterParser $parser, ViewRenderer $viewRenderer)
     {
         $this->temporaryFilesystem = $temporaryFilesystem;
         $this->parser = $parser;
         $this->view = $viewRenderer;
     }
-    
+
     public function shouldHandle($file)
     {
         return in_array($file->getRelativePath(), ['_posts/_tmp', '_pages/_tmp']);
@@ -75,7 +74,7 @@ class GhostHandler
         if ($cached = $this->getValidCachedFile($file, $uniqueFileName)) {
             return $this->view->render($cached->getPathname(), $pageData);
         }
-        
+
         return $this->renderMarkdownFile($file, $uniqueFileName, $pageData, $extends);
     }
 
@@ -120,7 +119,7 @@ class GhostHandler
             $replacements = array_merge([
                 ' @' => " {{'@'}}",
                 "\n@" => "\n{{'@'}}",
-                "`@" => "`{{'@'}}",
+                '`@' => "`{{'@'}}",
                 '{{' => '@{{',
                 '{!!' => '@{!!',
             ], $replacements);
@@ -134,7 +133,7 @@ class GhostHandler
         return $this->parser->getFrontMatter($file->getContents());
     }
 
-    public function getAmpHtml(string $content) : string
+    public function getAmpHtml(string $content): string
     {
         $env = (Environment::createDefaultEnvironment())
             ->addConverter(new YoutubeConverter())

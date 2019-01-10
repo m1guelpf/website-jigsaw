@@ -38,7 +38,7 @@ class ReadingTime
 
     protected function countWords() : void
     {
-        $this->words = collect(explode(' ', strip_tags(str_replace('>', '> ', $this->content))))->reject(function($word) {
+        $this->words = collect(explode(' ', strip_tags(str_replace('>', '> ', $this->content))))->reject(function ($word) {
             return in_array($word, ['', '.', "\n"]);
         })->count();
     }

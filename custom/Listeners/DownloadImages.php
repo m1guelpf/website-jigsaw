@@ -20,7 +20,7 @@ class DownloadImages
     protected function getPosts(Jigsaw $jigsaw) : array
     {
         $parser = $jigsaw->app[FrontMatterParser::class];
-        return $this->getPostsContent($jigsaw)->map(function($post) use($parser){
+        return $this->getPostsContent($jigsaw)->map(function ($post) use ($parser) {
             return $parser->extractContent($post);
         })->values()->toArray();
     }
@@ -37,11 +37,11 @@ class DownloadImages
     {
         $destination = $jigsaw->getDestinationPath();
 
-        return $this->getAllImages($posts, $jigsaw)->reject(function($post) {
+        return $this->getAllImages($posts, $jigsaw)->reject(function ($post) {
             return $post->isEmpty() || is_null($post->first());
-        })->flatten()->unique()->filter(function($url) {
+        })->flatten()->unique()->filter(function ($url) {
             return ! is_null($url) && is_null(parse_url($url, PHP_URL_HOST));
-        })->mapWithKeys(function($path) use($destination){
+        })->mapWithKeys(function ($path) use ($destination) {
             return [$destination.$path => 'https://staging.miguelpiedrafita.com'.$path];
         })->toArray();
     }
@@ -79,11 +79,11 @@ class DownloadImages
     {
         $filesystem = $jigsaw->getFilesystem();
 
-        collect($images)->map(function($url) {
+        collect($images)->map(function ($url) {
             return @file_get_contents($url);
-        })->reject(function($content) {
+        })->reject(function ($content) {
             return is_null($content);
-        })->each(function($contents, $path) use($jigsaw, $filesystem) {
+        })->each(function ($contents, $path) use ($jigsaw, $filesystem) {
             $directory_path = collect(explode('/', $path));
             $directory_path->pop();
             $directory_path = $directory_path->implode('/');
