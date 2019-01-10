@@ -1,6 +1,9 @@
 <?php
 
+use M1guelpf\GhostAPI\Ghost;
 use Illuminate\Support\Carbon;
+
+$ghost = new Ghost(env('GHOST_HOST'), env('GHOST_KEY'));
 
 return [
     'baseUrl' => env('APP_URL', 'https://miguelpiedrafita.com'),
@@ -19,146 +22,133 @@ return [
         'posts' => [
             'sort' => '-date',
             'path' => ['web' => '{slug}', 'amp' => '{slug}/amp'],
-            'items'=> function () {
-                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:false&absolute_urls=false'))->posts;
+            'items' => function () use ($ghost) {
+                $posts = $ghost->getPosts('tags', null, null, 'all')['posts'];
 
                 return collect($posts)->map(function ($post) {
                     return [
-                        'extends' => ['web' =>is_null($post->custom_template) || $post->custom_template == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post->custom_template), 'amp' => '_layouts.amp'],
-                        'title' => $post->title,
-                        'filename' => $post->slug,
-                        'slug' => $post->slug,
-                        'content' => $post->html,
-                        'cover_image' => $post->feature_image,
-                        'featured' => $post->featured,
-                        'date'  => $post->published_at,
-                        'excerpt' => htmlspecialchars($post->custom_excerpt, ENT_QUOTES),
-                        'page' => $post->page,
+                        'extends' => ['web' => is_null($post['custom_template']) || $post['custom_template'] == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post['custom_template']), 'amp' => '_layouts.amp'],
+                        'title' => $post['title'],
+                        'filename' => $post['slug'],
+                        'slug' => $post['slug'],
+                        'content' => $post['html'],
+                        'cover_image' => $post['feature_image'],
+                        'featured' => $post['featured'],
+                        'date' => $post['published_at'],
+                        'excerpt' => htmlspecialchars($post['excerpt'], ENT_QUOTES),
                         'meta' => [
-                            'title' => $post->meta_title,
-                            'description' => $post->meta_description,
+                            'title' => $post['meta_title'],
+                            'description' => $post['meta_description'],
                         ],
                         'og' => [
-                            'title' => $post->og_title,
-                            'description' => $post->og_description,
-                            'image' => $post->og_image,
+                            'title' => $post['og_title'],
+                            'description' => $post['og_description'],
+                            'image' => $post['og_image'],
                         ],
                         'twitter' => [
-                            'title' => $post->twitter_title,
-                            'description' => $post->twitter_description,
-                            'image' => $post->twitter_image,
+                            'title' => $post['twitter_title'],
+                            'description' => $post['twitter_description'],
+                            'image' => $post['twitter_image'],
                         ],
                         'inject' => [
-                            'head' => base64_encode($post->codeinjection_head),
-                            'footer' => base64_encode($post->codeinjection_foot),
+                            'head' => base64_encode($post['codeinjection_head']),
+                            'footer' => base64_encode($post['codeinjection_foot']),
                         ],
-                        'template' => $post->custom_template,
-                        'tags' => collect($post->tags)->map(function ($tag) {
+                        'template' => $post['custom_template'],
+                        'tags' => collect($post['tags'])->map(function ($tag) {
                             return [
-                                'name' => $tag->name,
-                                'slug' => $tag->slug,
-                                'internal' => $tag->visibility != 'public',
+                                'name' => $tag['name'],
+                                'slug' => $tag['slug'],
+                                'internal' => $tag['visibility'] != 'public',
                             ];
                         })->toArray(),
-                        'amp_scripts' => get_amp_scripts($post->html),
-                        'reading_time' => reading_time($post->html, isset($post->feature_image)),
+                        'amp_scripts' => get_amp_scripts($post['html']),
+                        'reading_time' => reading_time($post['html'], isset($post['feature_image'])),
                     ];
                 });
-            }
+            },
         ],
         'pages' => [
             'sort' => '-date',
             'path' => '{slug}',
-            'items'=> function () {
-                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&filter=page:true&absolute_urls=false'))->posts;
+            'items' => function () use ($ghost) {
+                $pages = $ghost->getPages('tags', null, null, 'all')['pages'];
 
-                return collect($posts)->map(function ($post) {
+                return collect($pages)->map(function ($page) {
                     return [
-                        'extends' => is_null($post->custom_template) || $post->custom_template == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post->custom_template),
-                        'title' => $post->title,
-                        'filename' => $post->slug,
-                        'slug' => $post->slug,
-                        'content' => $post->html,
-                        'cover_image' => $post->feature_image,
-                        'featured' => $post->featured,
-                        'date'  => $post->published_at,
-                        'excerpt' => htmlspecialchars($post->custom_excerpt, ENT_QUOTES),
-                        'page' => $post->page,
+                        'extends' => is_null($page['custom_template']) || $page['custom_template'] == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $page['custom_template']),
+                        'title' => $page['title'],
+                        'filename' => $page['slug'],
+                        'slug' => $page['slug'],
+                        'content' => $page['html'],
+                        'cover_image' => $page['feature_image'],
+                        'featured' => $page['featured'],
+                        'date' => $page['published_at'],
+                        'excerpt' => htmlspecialchars($page['excerpt'], ENT_QUOTES),
                         'meta' => [
-                            'title' => $post->meta_title,
-                            'description' => $post->meta_description,
+                            'title' => $page['meta_title'],
+                            'description' => $page['meta_description'],
                         ],
                         'og' => [
-                            'title' => $post->og_title,
-                            'description' => $post->og_description,
-                            'image' => $post->og_image,
+                            'title' => $page['og_title'],
+                            'description' => $page['og_description'],
+                            'image' => $page['og_image'],
                         ],
                         'twitter' => [
-                            'title' => $post->twitter_title,
-                            'description' => $post->twitter_description,
-                            'image' => $post->twitter_image,
+                            'title' => $page['twitter_title'],
+                            'description' => $page['twitter_description'],
+                            'image' => $page['twitter_image'],
                         ],
                         'inject' => [
-                            'head' => base64_encode($post->codeinjection_head),
-                            'footer' => base64_encode($post->codeinjection_foot),
+                            'head' => base64_encode($page['codeinjection_head']),
+                            'footer' => base64_encode($page['codeinjection_foot']),
                         ],
-                        'template' => $post->custom_template,
-                        'tags' => collect($post->tags)->map(function ($tag) {
-                            return [
-                                'name' => $tag->name,
-                                'slug' => $tag->slug,
-                                'internal' => $tag->visibility != 'public',
-                            ];
-                        })->toArray(),
+                        'template' => $page['custom_template'],
                     ];
                 });
-            }
+            },
         ],
         'tags' => [
             'sort' => '-date',
             'path' => 'tag/{slug}',
             'extends' => '_layouts.tag',
-            'items'=> function () {
-                $posts = json_decode(file_get_contents(env('GHOST_HOST').'/ghost/api/v0.1/posts/?limit=all&include=tags&client_id='.env('GHOST_ID').'&client_secret='.env('GHOST_SECRET').'&absolute_urls=false'))->posts;
+            'items' => function () use ($ghost) {
+                $tags = $ghost->getTags(null, null, null, 'all')['tags'];
+                $posts = $ghost->getPosts('tags', null, null, 'all')['posts'];
 
-                return collect($posts)->map(function ($post) {
-                    return collect($post->tags);
-                })->reject(function ($tags) {
-                    return $tags->isEmpty();
-                })->flatten()->unique('slug')->reject(function ($tag) {
-                    return $tag->visibility != 'public';
+                return collect($tags)->reject(function ($tag) {
+                    return $tag['visibility'] != 'public';
                 })->map(function ($tag) use ($posts) {
                     return [
-                        'name' => $tag->name,
-                        'slug' => $tag->slug,
-                        'filename' => $tag->slug,
-                        'description' => $tag->description,
-                        'cover_image' => $tag->feature_image,
-                        'meta_title' => $tag->meta_title,
-                        'meta_description' => $tag->meta_description,
-                        'date' => $tag->created_at,
-                        'posts' =>  collect($posts)->filter(function ($post) use ($tag) {
-                            return collect($post->tags)->contains('slug', $tag->slug);
+                        'name' => $tag['name'],
+                        'slug' => $tag['slug'],
+                        'filename' => $tag['slug'],
+                        'description' => $tag['description'],
+                        'cover_image' => $tag['feature_image'],
+                        'meta_title' => $tag['meta_title'],
+                        'meta_description' => $tag['meta_description'],
+                        'posts' => collect($posts)->filter(function ($post) use ($tag) {
+                            return collect($post['tags'])->contains('slug', $tag['slug']);
                         })->map(function ($post) {
                             return [
-                                'tags' => collect($post->tags)->map(function ($tag) {
+                                'tags' => collect($post['tags'])->map(function ($tag) {
                                     return [
-                                        'name' => $tag->name,
-                                        'slug' => $tag->slug,
-                                        'internal' => $tag->visibility != 'public',
+                                        'name' => $tag['name'],
+                                        'slug' => $tag['slug'],
+                                        'internal' => $tag['visibility'] != 'public',
                                     ];
                                 })->toArray(),
-                                'slug' => $post->slug,
-                                'featured' => $post->featured,
-                                'cover_image' => $post->feature_image,
-                                'title' => $post->title,
-                                'date' => $post->created_at,
+                                'slug' => $post['slug'],
+                                'featured' => $post['featured'],
+                                'cover_image' => $post['feature_image'],
+                                'title' => $post['title'],
+                                'date' => $post['created_at'],
                             ];
                         }),
                     ];
                 });
-            }
-        ]
+            },
+        ],
     ],
 
     // helpers
