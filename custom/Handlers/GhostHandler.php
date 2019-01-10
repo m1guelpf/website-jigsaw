@@ -96,10 +96,10 @@ class GhostHandler
                 "@section('{$pageData->page->section}'){!! \$postContent !!}@endsection"
         );
 
-        return $this->view->render(
+        return str_replace('<?', "<<?php echo '?'; ?>", $this->view->render(
             $this->temporaryFilesystem->put($wrapper, $uniqueFileName, '.php'),
             $pageData
-        );
+        ));
     }
 
     private function getValidCachedFile($file, $uniqueFileName)
