@@ -12,6 +12,10 @@ class DownloadImages
 
     public function handle(Jigsaw $jigsaw)
     {
+        if (! env('DOWNLOAD_IMAGES', true)) {
+            return;
+        }
+
         $images = $this->getImages($this->getPosts($jigsaw), $jigsaw);
 
         $this->downloadImages($images, $jigsaw);
