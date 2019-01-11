@@ -24,3 +24,14 @@ function reading_time(string $content, bool $hasFeatureImage): string
 {
     return (new ReadingTime($content, $hasFeatureImage))->compute();
 }
+
+function get_image_path($url)
+{
+    if (! is_string($url)) {
+        return;
+    }
+
+    $parsedUrl = parse_url($url);
+
+    return $parsedUrl['host'] == parse_url(env('IMAGE_URL'), PHP_URL_HOST) ? $parsedUrl['path'] : $url;
+}

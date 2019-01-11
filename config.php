@@ -32,7 +32,7 @@ return [
                         'filename' => $post['slug'],
                         'slug' => $post['slug'],
                         'content' => $post['html'],
-                        'cover_image' => $post['feature_image'],
+                        'cover_image' => get_image_path($post['feature_image']),
                         'featured' => $post['featured'],
                         'date' => $post['published_at'],
                         'excerpt' => htmlspecialchars($post['excerpt'], ENT_QUOTES),
@@ -43,12 +43,12 @@ return [
                         'og' => [
                             'title' => $post['og_title'],
                             'description' => $post['og_description'],
-                            'image' => $post['og_image'],
+                            'image' => get_image_path($post['og_image']),
                         ],
                         'twitter' => [
                             'title' => $post['twitter_title'],
                             'description' => $post['twitter_description'],
-                            'image' => $post['twitter_image'],
+                            'image' => get_image_path($post['twitter_image']),
                         ],
                         'inject' => [
                             'head' => base64_encode($post['codeinjection_head']),
@@ -81,7 +81,7 @@ return [
                         'filename' => $page['slug'],
                         'slug' => $page['slug'],
                         'content' => $page['html'],
-                        'cover_image' => $page['feature_image'],
+                        'cover_image' => get_image_path($page['feature_image']),
                         'featured' => $page['featured'],
                         'date' => $page['published_at'],
                         'excerpt' => htmlspecialchars($page['excerpt'], ENT_QUOTES),
@@ -92,12 +92,12 @@ return [
                         'og' => [
                             'title' => $page['og_title'],
                             'description' => $page['og_description'],
-                            'image' => $page['og_image'],
+                            'image' => get_image_path($page['og_image']),
                         ],
                         'twitter' => [
                             'title' => $page['twitter_title'],
                             'description' => $page['twitter_description'],
-                            'image' => $page['twitter_image'],
+                            'image' => get_image_path($page['twitter_image']),
                         ],
                         'inject' => [
                             'head' => base64_encode($page['codeinjection_head']),
@@ -124,7 +124,7 @@ return [
                         'slug' => $tag['slug'],
                         'filename' => $tag['slug'],
                         'description' => $tag['description'],
-                        'cover_image' => $tag['feature_image'],
+                        'cover_image' => get_image_path($tag['feature_image']),
                         'meta_title' => $tag['meta_title'],
                         'meta_description' => $tag['meta_description'],
                         'posts' => collect($posts)->filter(function ($post) use ($tag) {
@@ -140,7 +140,7 @@ return [
                                 })->toArray(),
                                 'slug' => $post['slug'],
                                 'featured' => $post['featured'],
-                                'cover_image' => $post['feature_image'],
+                                'cover_image' => get_image_path($post['feature_image']),
                                 'title' => $post['title'],
                                 'date' => $post['created_at'],
                             ];
