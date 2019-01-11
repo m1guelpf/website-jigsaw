@@ -11,6 +11,7 @@ use TightenCo\Jigsaw\View\ViewRenderer;
 use TightenCo\Jigsaw\File\TemporaryFilesystem;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use Predmond\HtmlToAmp\Converter\Extensions\YoutubeConverter;
+use App\AMP\AudioConverter;
 
 class GhostHandler
 {
@@ -139,6 +140,7 @@ class GhostHandler
     {
         $env = (Environment::createDefaultEnvironment())
             ->addConverter(new YoutubeConverter())
+            ->addConverter(new AudioConverter())
             ->addConverter(new CloudinaryImageConverter());
 
         return (new AmpConverter($env))->convert($content);
