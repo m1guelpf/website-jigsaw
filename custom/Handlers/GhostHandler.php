@@ -80,13 +80,15 @@ class GhostHandler
 
     private function renderMarkdownFile($file, $uniqueFileName, $pageData, $extends)
     {
-        $html = str_replace(['staging.miguelpiedrafita.com', '><'], ['miguelpiedrafita.com', ">\n<"], $this->parser->extractContent(
+        $html = $this->parser->extractContent(
             $this->getEscapedMarkdownContent($file)
-        ));
+        );
 
         if ($extends == '_layouts.amp') {
             $html = $this->getAmpHtml($html);
         }
+
+        $html = str_replace(['staging.miguelpiedrafita.com', '><'], ['miguelpiedrafita.com', ">\n<"], $html);
 
         $pageData->set('postContent', $html);
 
