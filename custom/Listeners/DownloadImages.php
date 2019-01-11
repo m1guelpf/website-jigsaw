@@ -17,9 +17,10 @@ class DownloadImages
         $this->downloadImages($images, $jigsaw);
     }
 
-    protected function getPosts(Jigsaw $jigsaw) : array
+    protected function getPosts(Jigsaw $jigsaw): array
     {
         $parser = $jigsaw->app[FrontMatterParser::class];
+
         return $this->getPostsContent($jigsaw)->map(function ($post) use ($parser) {
             return $parser->extractContent($post);
         })->values()->toArray();
@@ -29,20 +30,23 @@ class DownloadImages
     {
         return $jigsaw->getCollection('posts')->map(function ($post) {
             $meta = $post->_meta;
+
             return file_get_contents("{$meta['source']}/{$meta['filename']}.{$meta['extension']}");
         });
     }
 
-    protected function getImages(array $posts, Jigsaw $jigsaw) : array
+    protected function getImages(array $posts, Jigsaw $jigsaw): array
     {
         $destination = $jigsaw->getDestinationPath();
 
         return $this->getAllImages($posts, $jigsaw)->reject(function ($post) {
             return $post->isEmpty() || is_null($post->first());
         })->flatten()->unique()->filter(function ($url) {
-            return ! is_null($url) && is_null(parse_url($url, PHP_URL_HOST));
+            return ! is_null($url) && parse_url($url, PHP_URL_HOST) == parse_url(env('IMAGE_URL'), PHP_URL_HOST);
+        })->map(function ($url) {
+            return parse_url($url, PHP_URL_PATH);
         })->mapWithKeys(function ($path) use ($destination) {
-            return [$destination.$path => 'https://staging.miguelpiedrafita.com'.$path];
+            return [$destination . $path => 'https://staging.miguelpiedrafita.com' . $path];
         })->toArray();
     }
 
@@ -70,7 +74,7 @@ class DownloadImages
             $frontMatter = $parser->getFrontMatter($post);
 
             return collect([
-                $frontMatter['cover_image'], $frontMatter['og']['image'], $frontMatter['twitter']['image']
+                $frontMatter['cover_image'], $frontMatter['og']['image'], $frontMatter['twitter']['image'],
             ]);
         })->values();
     }
@@ -88,7 +92,7 @@ class DownloadImages
             $directory_path->pop();
             $directory_path = $directory_path->implode('/');
 
-            if (!$filesystem->isDirectory($directory_path) || !$filesystem->exists($directory_path)) {
+            if (! $filesystem->isDirectory($directory_path) || ! $filesystem->exists($directory_path)) {
                 $filesystem->makeDirectory($directory_path, 0755, true);
             }
 
