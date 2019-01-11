@@ -5,7 +5,7 @@ use Symfony\Component\Dotenv\Dotenv;
 require_once 'vendor/autoload.php';
 
 if (file_exists($envPath = __DIR__ . '/.env')) {
-    (new Dotenv)->load($envPath);
+    (new Dotenv())->load($envPath);
 }
 
 // @var $container \Illuminate\Container\Container
