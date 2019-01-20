@@ -46,7 +46,7 @@ class DownloadImages
         return $this->getAllImages($posts, $jigsaw)->reject(function ($post) {
             return $post->isEmpty() || is_null($post->first());
         })->flatten()->unique()->filter(function ($url) {
-            return ! is_null($url) && parse_url($url, PHP_URL_HOST) == parse_url(env('IMAGE_URL'), PHP_URL_HOST);
+            return ! is_null($url) && in_array(parse_url($url, PHP_URL_HOST), [null, parse_url(env('IMAGE_URL'), PHP_URL_HOST)]);
         })->map(function ($url) {
             return parse_url($url, PHP_URL_PATH);
         })->mapWithKeys(function ($path) use ($destination) {
