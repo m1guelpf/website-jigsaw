@@ -2,6 +2,8 @@
 
 namespace App\Handlers;
 
+use App\AMP\AudioConverter;
+use App\AMP\IframeConverter;
 use TightenCo\Jigsaw\PageData;
 use Predmond\HtmlToAmp\Environment;
 use Predmond\HtmlToAmp\AmpConverter;
@@ -11,7 +13,6 @@ use TightenCo\Jigsaw\View\ViewRenderer;
 use TightenCo\Jigsaw\File\TemporaryFilesystem;
 use TightenCo\Jigsaw\Parsers\FrontMatterParser;
 use Predmond\HtmlToAmp\Converter\Extensions\YoutubeConverter;
-use App\AMP\AudioConverter;
 
 class GhostHandler
 {
@@ -141,6 +142,7 @@ class GhostHandler
         $env = (Environment::createDefaultEnvironment())
             ->addConverter(new YoutubeConverter())
             ->addConverter(new AudioConverter())
+            ->addConverter(new IframeConverter())
             ->addConverter(new CloudinaryImageConverter());
 
         return (new AmpConverter($env))->convert($content);
