@@ -29,7 +29,7 @@ class GhostHandler
 
     public function shouldHandle($file)
     {
-        return in_array($file->getRelativePath(), ['_posts/_tmp', '_pages/_tmp']);
+        return in_array($file->getRelativePath(), ['_posts/_tmp', '_pages/_tmp', '_200wad/_tmp']);
     }
 
     public function handleCollectionItem($file, PageData $pageData)

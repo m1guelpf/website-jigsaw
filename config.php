@@ -3,6 +3,7 @@
 use M1guelpf\GhostAPI\Ghost;
 use Illuminate\Support\Carbon;
 
+$colors = array_flip(['violet', 'green', 'red', 'orange', 'yellow', 'blue']);
 $ghost = new Ghost(env('GHOST_HOST'), env('GHOST_KEY'));
 
 return [
@@ -19,6 +20,33 @@ return [
 
     // collections
     'collections' => [
+        '200wad' => [
+            'sort' => '-date',
+            'path' => ['web' => '200wad/{slug}', 'amp' => '200wad/{slug}/amp'],
+            'items' => function () use ($colors) {
+                $posts = json_decode(file_get_contents('https://200wordsaday.com/api/texts?api_key='.env('WAD_KEY')), true);
+
+                return collect($posts)->reject(function ($post) {
+                    return $post['status'] == 'status' && $post['access_rights'] == 'public';
+                })->map(function ($post) use ($colors) {
+                    return [
+                        'extends' => ['web' => '_layouts.200wad', 'amp' => '_layouts.200wad_amp'],
+                        'accent' => array_rand($colors),
+                        'title' => $post['title'],
+                        'filename' => $post['slug'],
+                        'slug' => str_slug($post['title']),
+                        'content' => $post['content'],
+                        'date' => $post['published_datetime']['date'],
+                        'count' => $post['word_count'],
+                        'tags' => collect($post['categories'])->map(function ($tag) {
+                            return $tag['name'];
+                        })->toArray(),
+                        'amp_scripts' => get_amp_scripts($post['content']),
+                        'reading_time' => reading_time_200wad($post['word_count']),
+                    ];
+                });
+            },
+        ],
         'posts' => [
             'sort' => '-date',
             'path' => ['web' => '{slug}', 'amp' => '{slug}/amp'],

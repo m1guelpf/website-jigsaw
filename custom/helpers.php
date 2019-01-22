@@ -25,6 +25,11 @@ function reading_time(string $content, bool $hasFeatureImage): string
     return (new ReadingTime($content, $hasFeatureImage))->compute();
 }
 
+function reading_time_200wad(int $wordCount): string
+{
+    return ReadingTime::rawCompute($wordCount);
+}
+
 function get_image_path($url)
 {
     if (! is_string($url)) {

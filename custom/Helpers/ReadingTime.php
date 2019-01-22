@@ -18,6 +18,15 @@ class ReadingTime
         $this->countWords();
     }
 
+    public static function rawCompute(int $words) : string
+    {
+        $seconds = $words / (275 / 60);
+
+        $minutes = round($seconds / 60);
+
+        return $minutes <= 1 ? '1 min read' : "$minutes min read";
+    }
+
     public function compute() : string
     {
         $seconds = $this->words / $this->wordsPerSec;
