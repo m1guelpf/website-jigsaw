@@ -18,5 +18,9 @@
         "sass-loader": "^7.1.0",
         "vue-template-compiler": "^2.5.21",
         "yargs": "^4.6.0"
+    },
+    "dependencies": {
+        "lightense-images": "^1.0.5",
+        "reframe.js": "^2.2.5"
     }
 }
