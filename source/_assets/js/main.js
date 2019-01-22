@@ -41,3 +41,27 @@ for (var i = 0, linksLength = links.length; i < linksLength; i++) {
         links[i].target = '_blank noopener noreferer';
     }
 }
+
+let themeText = document.getElementById('theme-text');
+let themeChanger = () => {
+    let darkTheme = document.body.classList.contains('global-hash-dark-version');
+    let themeSlider = document.getElementById('theme-slider');
+    document.body.classList.toggle('global-hash-dark-version')
+    
+    if (darkTheme) {
+        themeText.innerText = 'Darken me';
+        localStorage.removeItem('mp-dark')
+        themeSlider.checked = false;
+    } else {
+        themeText.innerText = 'Lighten Up';
+        localStorage.setItem('mp-dark', 'yeeeeeeeah')
+        themeSlider.checked = true;
+     }
+};
+
+if (localStorage.hasOwnProperty('mp-dark')) {
+    themeChanger()
+}
+
+themeText.onclick = themeChanger
+document.querySelector('.switch > input[type="checkbox"]').onclick = themeChanger
