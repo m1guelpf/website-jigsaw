@@ -61,7 +61,6 @@ body {
     line-height: 1.5;
     word-wrap: break-word;
     word-break: break-word;
-    color: #161b3d;
     margin: 0;
 }
 
@@ -4271,4 +4270,8 @@ iframe {
     .switch {
         display: none;
     }
+}
+
+.loading {
+    display:none;
 }
