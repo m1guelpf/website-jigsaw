@@ -1,18 +1,13 @@
 @extends('_layouts.ghost')
 
+@section('body-class', 'error-template')
+
 @section('body')
-<div class="section-featured no-featured-image wrap">
-    <center class="featured-wrap">
-            <h1>404</h1>
-            <h4>Page not found</h4>
-            <a href="{{ $page->getBaseUrl() }}">Go to the front page →</a>
-    </center>
+<div class="section-error flex">
+    <div class="error-wrap">
+        <h2>404</h2>
+        <p>Page not found</p>
+        <a href="{{ $page->getBaseUrl() }}" class="subscribe-back-button error-back-button">Back to Homepage</a>
+    </div>
 </div>
-        <div class="section-loop wrap ">
-            <div class="items-wrap flex">
-                @foreach(collect($posts)->take(3) as $post)
-                    @include('_components.post_card', ['baseUrl' => $page->getBaseUrl()])
-                @endforeach
-            </div>
-        </div>
 @endsection
