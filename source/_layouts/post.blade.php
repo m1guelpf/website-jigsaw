@@ -62,7 +62,7 @@
 <aside class="section-prev-next">
     <div class="prev-next-wrap">
     @if ($next = $page->getPrevious())
-    <a href="{{ $next->getUrl() }}" class="next-post post @foreach($next->tags as $tag) tag-{{ $tag['slug'] }}@endforeach tag-hash-large {{ $next->featured ? 'featured':'' }} {{ $next->cover_image != null ? 'is-image':'' }}">
+    <a href="{{ $next->getUrl('web') }}" class="next-post post @foreach($next->tags as $tag) tag-{{ $tag['slug'] }}@endforeach tag-hash-large {{ $next->featured ? 'featured':'' }} {{ $next->cover_image != null ? 'is-image':'' }}">
         @if($next->cover_image != null)
             <div class="prev-next-image" style="background-image: url({{ $next->cover_image }})"></div>
         @endif
@@ -73,7 +73,7 @@
     </a>
     @endif
     @if ($previous = $page->getNext())
-        <a href="{{ $previous->getUrl() }}" class="next-post post @foreach($previous->tags as $tag) tag-{{ $tag['slug'] }}@endforeach tag-hash-large {{ $previous->featured ? 'featured':'' }} {{ $previous->cover_image != null ? 'is-image':'' }}">
+        <a href="{{ $previous->getUrl('web') }}" class="next-post post @foreach($previous->tags as $tag) tag-{{ $tag['slug'] }}@endforeach tag-hash-large {{ $previous->featured ? 'featured':'' }} {{ $previous->cover_image != null ? 'is-image':'' }}">
             @if($previous->cover_image != null)
                 <div class="prev-next-image" style="background-image: url({{ $previous->cover_image }})"></div>
             @endif
