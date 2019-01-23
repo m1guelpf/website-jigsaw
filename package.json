@@ -20,6 +20,9 @@
         "yargs": "^4.6.0"
     },
     "dependencies": {
+        "fuse.js": "^3.3.0",
+        "hamburgers": "^1.1.3",
+        "ityped": "^1.0.3",
         "lightense-images": "^1.0.5",
         "reframe.js": "^2.2.5"
     }
