@@ -1,29 +1,29 @@
-const setTheme = isDark => {
-    if (isDark) {
-        localStorage.setItem('theme', 'theme_night');
-        document.documentElement.classList.add('global-hash-dark-version');
+const setTheme = isLight => {
+    if (isLight) {
+        localStorage.setItem('theme', 'theme_light');
+        document.body.classList.remove('global-hash-dark-version');
     } else {
-        document.documentElement.classList.remove('global-hash-dark-version');
+        document.body.classList.add('global-hash-dark-version');
         localStorage.removeItem('theme');
     }
 }
 
 const toggleTheme = () => {
-    const isDark = !document.documentElement.classList.contains('global-hash-dark-version');
-    setTheme(isDark);
-    document.documentElement.dispatchEvent(
+    const isLight = document.body.classList.contains('global-hash-dark-version');
+    setTheme(isLight);
+    document.body.dispatchEvent(
         new CustomEvent('theme-changed', {
             bubbles: true,
             detail: {
-                isDark
+                isLight
             }
         }));
 }
 
 const syncThemeToggle = (slider, text) => {
-    const isDark = document.documentElement.classList.contains('global-hash-dark-version');
-    text.textContent = isDark ? 'Lighten Up' : 'Darken me';
-    slider.checked = isDark;
+    const isLight = !document.body.classList.contains('global-hash-dark-version');
+    text.textContent = isLight ? 'Darken me' : 'Lighten Up';
+    slider.checked = !isLight;
 }
 
 const initThemeToggle = () => {
@@ -36,20 +36,10 @@ const initThemeToggle = () => {
     };
 }
 
-const contentLoaded = new Promise(resolve => {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => resolve());
-    } else {
-        resolve();
-    }
-});
-
 const initTheme = () => {
-    const isDark = localStorage.getItem('theme') === 'theme_night';
-    setTheme(isDark);
-    return contentLoaded.then(initThemeToggle);
+    const isLight = localStorage.getItem('theme') === 'theme_light';
+    setTheme(isLight);
+    initThemeToggle();
 }
 
-initTheme().then(() => {
-    document.body.classList.remove('loading')
-})
+initTheme()

@@ -28,7 +28,7 @@
     @stack('head')
 </head>
 
-<body class="@yield('body-class', 'post-template') @isset($page->tags) @foreach($page->tags as $tag) tag-{{ $tag['slug'] }}@endforeach @endisset loading">
+<body class="global-hash-dark-version @yield('body-class', 'post-template') @isset($page->tags) @foreach($page->tags as $tag) tag-{{ $tag['slug'] }}@endforeach @endisset">
     @if ($page->production)
         <div id="codefund" style="position:fixed;z-index:999;"></div>
     @endif

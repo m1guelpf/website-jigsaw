@@ -15,7 +15,7 @@
         <li class="nav-list-item" style="display: inline-flex;">
             <a class="nav-link" style="cursor: pointer;" id="theme-text">Darken me</a>
             <label class="switch">
-                <input type="checkbox" id="theme-slider">
+                <input type="checkbox" checked id="theme-slider">
                 <span class="slider round"></span>
             </label>
         </li>
