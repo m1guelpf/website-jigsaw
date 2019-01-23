@@ -26,8 +26,8 @@ return [
             'items' => function () use ($colors) {
                 $posts = json_decode(file_get_contents('https://200wordsaday.com/api/texts?api_key='.env('WAD_KEY')), true);
 
-                return collect($posts)->reject(function ($post) {
-                    return $post['status'] == 'status' && $post['access_rights'] == 'public';
+                return collect($posts)->filter(function ($post) {
+                    return $post['status'] == 'published' && $post['access_rights'] == 'public';
                 })->map(function ($post) use ($colors) {
                     return [
                         'extends' => ['web' => '_layouts.200wad', 'amp' => '_layouts.200wad_amp'],
