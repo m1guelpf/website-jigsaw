@@ -6,7 +6,6 @@
         "samdark/sitemap": "^2.2",
         "paulredmond/html-to-amp": "^0.1.1",
         "cloudinary/cloudinary_php": "^1.13",
-        "symfony/dotenv": "^4.2",
         "m1guelpf/ghost-api": "dev-master"
     },
     "autoload": {

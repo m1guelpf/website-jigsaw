@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22264177cc2025019b301de516d4b9b5",
+    "content-hash": "ea194e9587f5d236acec08f645c56687",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -448,7 +448,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -493,16 +493,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "758927e5e925c1d442a1faaa1356675ceba0194c"
+                "reference": "3d67e2d7c9087ae3a2a53d9b102697e5f482d6d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/758927e5e925c1d442a1faaa1356675ceba0194c",
-                "reference": "758927e5e925c1d442a1faaa1356675ceba0194c",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/3d67e2d7c9087ae3a2a53d9b102697e5f482d6d0",
+                "reference": "3d67e2d7c9087ae3a2a53d9b102697e5f482d6d0",
                 "shasum": ""
             },
             "require": {
@@ -533,11 +533,11 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2018-11-15T13:49:08+00:00"
+            "time": "2019-01-09T10:34:49+00:00"
         },
         {
             "name": "illuminate/events",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -582,7 +582,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -634,7 +634,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -693,7 +693,7 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -2056,16 +2056,16 @@
         },
         {
             "name": "tightenco/jigsaw",
-            "version": "v1.3.3",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/jigsaw.git",
-                "reference": "9d477c70497c202cd211c5a5bd2ee2599dc359d9"
+                "reference": "85166f8d45993d8a8862b2a52ea24d6c0ab40e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/jigsaw/zipball/9d477c70497c202cd211c5a5bd2ee2599dc359d9",
-                "reference": "9d477c70497c202cd211c5a5bd2ee2599dc359d9",
+                "url": "https://api.github.com/repos/tightenco/jigsaw/zipball/85166f8d45993d8a8862b2a52ea24d6c0ab40e2a",
+                "reference": "85166f8d45993d8a8862b2a52ea24d6c0ab40e2a",
                 "shasum": ""
             },
             "require": {
@@ -2076,6 +2076,7 @@
                 "mnapoli/front-yaml": "^1.5",
                 "mockery/mockery": "^1.0.0",
                 "symfony/console": "~3.0|^4.0",
+                "symfony/dotenv": "^4.2",
                 "symfony/process": "~3.0|^4.0",
                 "symfony/var-dumper": "^4.0",
                 "symfony/yaml": "^4.0"
@@ -2115,7 +2116,7 @@
                 "site",
                 "static"
             ],
-            "time": "2019-01-09T21:36:45+00:00"
+            "time": "2019-01-25T22:28:59+00:00"
         }
     ],
     "packages-dev": [],
