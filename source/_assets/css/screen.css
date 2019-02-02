@@ -1082,14 +1082,6 @@ a:focus {
     margin-top: 0;
 }
 
-.section-loop.is-featured {
-    margin-top: -10vh;
-}
-
-.section-loop.no-featured {
-    margin-top: 10vh;
-}
-
 .items-wrap {
     margin: 0 -15px;
     -webkit-animation: slide-top .7s cubic-bezier(.250, .460, .450, .940) both;

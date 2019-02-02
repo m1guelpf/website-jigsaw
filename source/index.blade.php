@@ -2,7 +2,7 @@
 
 @section('body')
             <div class="section-featured no-featured-image wrap">
-                <div class="featured-wrap flex">
+                <div class="featured-wrap flex" style="padding: 0;">
                     <article class="introduction">
                         <h2>👋 Hi! I'm a 16-year-old who loves to <i>make stuff</i>.</h2>
                         <div class="item-meta white">
