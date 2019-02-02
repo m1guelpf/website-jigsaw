@@ -17,7 +17,7 @@
                         <a class="post-tag global-tag">{{ $tag }}</a>
                     @endforeach
                 </div>
-                <h1 class="white">{{ $page->title }}</h1>
+                <h1 class="white">{!! $page->title !!}</h1>
                 <div class="item-meta white">
                     <time datetime="{{ $page->getDate()->format('YYYY-MM-DD') }}">{{ $page->getDate()->diffForHumans() }}</time>
                     <span class="reading-time"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="section-post wrap">
-        <div class="post-wrap no-image">
+        <div class="post-wrap no-image" style="padding-bottom:60px;">
             @yield('content')
         </div>
         <div class="post-meta">
