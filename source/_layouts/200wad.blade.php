@@ -14,7 +14,7 @@
                 <div class="tags-wrap">
                         <span class="featured-label global-tag">@include('_icons.star') <span>200wad</span></span>
                     @foreach($page->tags as $tag)
-                        <a class="post-tag global-tag">{{ $tag }}</a>
+                        <a class="post-tag global-tag">{{ str_after($tag, '#') }}</a>
                     @endforeach
                 </div>
                 <h1 class="white">{!! $page->title !!}</h1>
