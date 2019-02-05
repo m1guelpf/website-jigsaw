@@ -19,7 +19,8 @@
                 </div>
                 <h1 class="white">{!! $page->title !!}</h1>
                 <div class="item-meta white">
-                    <time datetime="{{ $page->getDate()->format('YYYY-MM-DD') }}">{{ $page->getDate()->diffForHumans() }}</time>
+                    <time datetime="{{ $page->getDate()->format('YYYY-MM-DD') }}">Day #{{ $page->day }}</time>
+                    <span style="margin-right:15px">{{ $page->word_count }} words</span>
                     <span class="reading-time"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.1907692,24 C4.5625628,24 0,19.4374372 0,13.8092308 C0,8.18102433 4.5625628,3.61846154 10.1907692,3.61846154 C15.8189757,3.61846154 20.3815385,8.18102433 20.3815385,13.8092308 C20.3815385,19.4374372 15.8189757,24 10.1907692,24 Z M10.1907692,22 C14.7144062,22 18.3815385,18.3328677 18.3815385,13.8092308 C18.3815385,9.28559383 14.7144062,5.61846154 10.1907692,5.61846154 C5.6671323,5.61846154 2,9.28559383 2,13.8092308 C2,18.3328677 5.6671323,22 10.1907692,22 Z"
                                 id="Oval"></path>
