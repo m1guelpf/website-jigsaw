@@ -16,6 +16,7 @@ return [
 
     'navigation' => [
         ['title' => 'Support me', 'path' => 'patreon'],
+        ['title' => 'Daily writing', 'path' => '200wad'],
     ],
 
     'written_days' => value(function () {
