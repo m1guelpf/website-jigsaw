@@ -20,7 +20,7 @@ return [
 
     // collections
     'collections' => [
-        '200wad' => [
+        'daily' => [
             'sort' => '-date',
             'path' => ['web' => '200wad/{slug}', 'amp' => '200wad/{slug}/amp'],
             'items' => function () use ($colors) {
