@@ -26,6 +26,8 @@ return [
             'items' => function () use ($colors) {
                 $posts = json_decode(file_get_contents('https://200wordsaday.com/api/texts?api_key='.env('WAD_KEY')), true);
 
+                $startDate = Carbon::parse(collect($posts)->last()['published_datetime']['date']);
+
                 $lastColor;
 
                 return collect($posts)->filter(function ($post) {
@@ -54,6 +56,7 @@ return [
                         'amp_scripts' => get_amp_scripts($post['content']),
                         'reading_time' => reading_time_200wad($post['word_count']),
                         'word_count' => $post['word_count'],
+                        'day' => Carbon::parse($post['published_datetime']['date'])->diffInDays($startDate) + 1
                     ];
                 });
             },
