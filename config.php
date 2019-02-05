@@ -18,6 +18,12 @@ return [
         ['title' => 'Support me', 'path' => 'patreon'],
     ],
 
+    'written_days' => value(function () {
+        $posts = collect(json_decode(file_get_contents('https://200wordsaday.com/api/texts?api_key='.env('WAD_KEY')), true));
+
+        return Carbon::parse(Carbon::parse($posts->first()['published_datetime']['date']))->diffInDays(Carbon::parse($posts->last()['published_datetime']['date'])) + 1;
+    }),
+
     // collections
     'collections' => [
         'daily' => [
