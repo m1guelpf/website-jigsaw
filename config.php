@@ -26,12 +26,22 @@ return [
             'items' => function () use ($colors) {
                 $posts = json_decode(file_get_contents('https://200wordsaday.com/api/texts?api_key='.env('WAD_KEY')), true);
 
+                $lastColor;
+
                 return collect($posts)->filter(function ($post) {
                     return $post['status'] == 'published' && $post['access_rights'] == 'public';
                 })->map(function ($post) use ($colors) {
+                    $color = array_rand($colors);
+
+                    while ($color == $lastColor) {
+                        $color = array_rand($colors);
+                    }
+
+                    $lastColor = $color;
+                    
                     return [
                         'extends' => ['web' => '_layouts.200wad', 'amp' => '_layouts.200wad_amp'],
-                        'accent' => array_rand($colors),
+                        'accent' => $color,
                         'title' => $post['title'],
                         'filename' => $post['slug'],
                         'slug' => str_slug($post['title']),
