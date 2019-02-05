@@ -9,7 +9,7 @@
         @foreach($page->navigation as $item)
             <li class="nav-list-item">
                 <a href="{{ $page->baseUrl.'/'.$item['path'] }}" class="nav-link nav-support-me">{{ $item['title'] }}</a>
-                <span class="nav-dot"></span>
+                <span class="nav-dot {{ $page->getUrl() == $page->baseUrl."/{$item['path']}" ? 'nav-dot-current':'' }}"></span>
             </li>
         @endforeach
         <li class="nav-list-item" style="display: inline-flex;">
