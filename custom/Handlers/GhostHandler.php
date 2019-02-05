@@ -83,7 +83,7 @@ class GhostHandler
     private function renderMarkdownFile($file, $uniqueFileName, $pageData, $extends)
     {
         $html = $this->parser->extractContent(
-            $this->getEscapedMarkdownContent($file)
+            $file->getContents()
         );
 
         if ($extends == '_layouts.amp') {
