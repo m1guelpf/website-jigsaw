@@ -1,4 +1,27 @@
+@php
+    $page->title = "Daily Writing - Miguel Piedrafita";
+@endphp
+
 @extends('_layouts.ghost')
+
+@push('meta')
+<meta name="title" content="Daily Writing - Miguel Piedrafita">
+<meta name="description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ $page->getUrl() }}">
+<meta property="og:title" content="Daily Writing - Miguel Piedrafita">
+<meta property="og:description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+<meta property="og:image" content="http://m1guelpf.me/330a79dae378/Image%2525202019-02-05%252520at%2525207.37.04%252520PM.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ $page->getUrl() }}">
+<meta property="twitter:title" content="Daily Writing - Miguel Piedrafita">
+<meta property="twitter:description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+<meta property="twitter:image" content="http://m1guelpf.me/330a79dae378/Image%2525202019-02-05%252520at%2525207.37.04%252520PM.png">
+@endpush
 
 @section('body')
             <div class="section-featured no-featured-image wrap">
