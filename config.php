@@ -53,6 +53,7 @@ return [
                         })->toArray(),
                         'amp_scripts' => get_amp_scripts($post['content']),
                         'reading_time' => reading_time_200wad($post['word_count']),
+                        'word_count' => $post['word_count'],
                     ];
                 });
             },
