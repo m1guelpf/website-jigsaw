@@ -1,5 +1,22 @@
 @extends('_layouts.ghost')
 
+@push('meta')
+<meta name="title" content="Miguel Piedrafita">
+<meta name="description" content="{{ $page->siteDescription }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ $page->getBaseUrl() }}">
+<meta property="og:title" content="Miguel Piedrafita">
+<meta property="og:description" content="{{ $page->siteDescription }}">
+<meta property="og:image" content="http://m1guelpf.me/20e6eaff9a2e/Image%2525202019-02-05%252520at%2525207.32.17%252520PM.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ $page->getBaseUrl() }}">
+<meta property="twitter:title" content="Miguel Piedrafita">
+<meta property="twitter:description" content="{{ $page->siteDescription }}">
+<meta property="twitter:image" content="http://m1guelpf.me/20e6eaff9a2e/Image%2525202019-02-05%252520at%2525207.32.17%252520PM.png">
+@endpush
+
 @section('body')
             <div class="section-featured no-featured-image wrap">
                 <div class="featured-wrap flex" style="padding: 0;">
@@ -16,7 +33,7 @@
                                     target="_blank">contributed to over 350 open source projects</a>.</p>
                             <p>You can checkout my open-source projects on
                                 <a href="https://github.com/m1guelpf" target="_blank">GitHub</a>, follow me on
-                                <a href="https://twitter.com/m1guelpf" target="_blank">Twitter</a>, or read my articles below. And, if you like what I do, please consider <a href="https://miguelpiedrafita.com/patreon">helping me achieve my dream</a> :)</p>
+                                <a href="https://twitter.com/m1guelpf" target="_blank">Twitter</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}patreon">helping me achieve my dream</a> :)</p>
                         </div>
                     </article>
                 </div>
