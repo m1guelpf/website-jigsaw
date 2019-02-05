@@ -39,7 +39,7 @@ return [
 
                 return collect($posts)->filter(function ($post) {
                     return $post['status'] == 'published' && $post['access_rights'] == 'public';
-                })->map(function ($post) use ($colors) {
+                })->map(function ($post) use ($colors, $startDate, &$lastColor) {
                     $color = array_rand($colors);
 
                     while ($color == $lastColor) {
