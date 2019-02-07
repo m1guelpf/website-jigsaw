@@ -33,7 +33,7 @@
                                     target="_blank">contributed to over 350 open source projects</a>.</p>
                             <p>You can checkout my open-source projects on
                                 <a href="https://github.com/m1guelpf" target="_blank">GitHub</a>, follow me on
-                                <a href="https://twitter.com/m1guelpf" target="_blank">Twitter</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}patreon">helping me achieve my dream</a> :)</p>
+                                <a href="https://twitter.com/m1guelpf" target="_blank">Twitter</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}/patreon">helping me achieve my dream</a> :)</p>
                         </div>
                     </article>
                 </div>
