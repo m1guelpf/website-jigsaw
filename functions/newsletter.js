@@ -1,9 +1,9 @@
 import atob from 'atob'
 
 exports.handler = (event, context, callback) => {
-    const body = event.isBase64Encoded ? JSON.parse(atob(event.body)) : JSON.parse(event.body)
+    const body = event.isBase64Encoded ? atob(event.body) : event.body
 
-    console.log(body.email)
+    console.log(body)
 
     callback(null, {
         statusCode: 200,
