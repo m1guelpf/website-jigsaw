@@ -24,7 +24,7 @@
                 <div class="page-subscribe-content flex">
                     <div class="subscribe-wrap">
                         <h3>Subscribe to {{ $page->siteName }}</h3>
-                        <form method="post" action="/subscribe/" class="">
+                        <form method="POST" action="https://miguelpiedrafita.com/.netlify/functions/newsletter">
                             <div class="form-group">
                                 <input class="subscribe-email" type="email" name="email" autofocus="autofocus" placeholder="Your email address" required/>
                             </div>
