@@ -1,3 +1,4 @@
+import 'instant.page'
 import 'hamburgers'
 import 'ityped'
 import './global/search';
