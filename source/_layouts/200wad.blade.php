@@ -76,7 +76,7 @@
 @endsection
 
 @push('scripts')
-    <script src="https://blogcast.host/embed.js?url={{ $page->getUrl() }}"></script>
+    <script src="https://blogcast.host/embed.js?url={{ $page->getUrl() }}/"></script>
     <script>{{ inline(mix('js/post.js', 'assets/build')) }}</script>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>commentBox('5675594515742720-proj');</script>
