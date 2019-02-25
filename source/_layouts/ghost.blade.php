@@ -30,9 +30,9 @@
 
 <body class="global-hash-dark-version @yield('body-class', 'post-template') @isset($page->tags) @foreach($page->tags as $tag) tag-{{ $tag['slug'] }}@endforeach @endisset">
     @yield('top')
-    @if ($page->production)
+    {{-- @if ($page->production)
         <div id="codefund" style="position:fixed;z-index:999;"></div>
-    @endif
+    @endif --}}
     <div class="global-wrap">
         <div class="section-content-wrap">
             <div class="section-header wrap">
@@ -101,7 +101,7 @@
     </script>
     <script>{{ inline(mix('js/main.js', 'assets/build')) }}</script>
     @if($page->production)
-        <script src="https://codefund.app/properties/126/funder.js" async="async"></script>
+        {{-- <script src="https://codefund.app/properties/126/funder.js" async="async"></script> --}}
 
         <script>
         (function(f, a, t, h, o, m){
