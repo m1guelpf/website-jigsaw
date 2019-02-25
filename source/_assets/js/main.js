@@ -4,3 +4,4 @@ import 'ityped'
 import './global/search';
 import './global/links';
 import './global/darkTheme';
+import './global/spot';

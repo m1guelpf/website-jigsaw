@@ -4267,3 +4267,16 @@ iframe {
 .loading {
     display:none;
 }
+
+.intravert-space {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+}
+.intravert-space > a {
+    text-align: center;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.global-hash-dark-version .intravert-space {
+    background: #32343a !important;
+}

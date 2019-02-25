@@ -29,6 +29,7 @@
 </head>
 
 <body class="global-hash-dark-version @yield('body-class', 'post-template') @isset($page->tags) @foreach($page->tags as $tag) tag-{{ $tag['slug'] }}@endforeach @endisset">
+    @yield('top')
     @if ($page->production)
         <div id="codefund" style="position:fixed;z-index:999;"></div>
     @endif
