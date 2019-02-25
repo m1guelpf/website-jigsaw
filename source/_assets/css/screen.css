@@ -4268,15 +4268,89 @@ iframe {
     display:none;
 }
 
-.intravert-space {
+/* .intravert-space {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    background: linear-gradient(-280deg, #ff469c, #ff4646);
+    z-index: 999;
+    border-radius: 10px 0 0 0;
+    display: block !important;
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
 }
+.intravert-space-link {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0;
+}
+
+.intravert-space-link img {
+    max-height: 50vh;
+}
+
 .intravert-space > a {
+    color: white;
     text-align: center;
     border-radius: 5px;
     font-size: 13px;
 }
 .global-hash-dark-version .intravert-space {
     background: #32343a !important;
+} */
+.intravert-space-link {
+    display: block;
+    width: 250px;
+    height: 116px;
+}
+.intravert-space {
+    transition: 1s;
+    overflow: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: -10000px;
+    z-index: 999;
+
+    padding: 0.5em 1em 1em 1em;
+    margin-right: -2em;
+    background-image: linear-gradient(-280deg, #ff469c, #ff4646);
+    border-radius: 5.5em;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    /* padding-left: 2em; */
+}
+.has-statamic .intravert-space {
+    right: 20px;
+    transition: 1s;
+    
+    /* padding-left: 2em; */
+}
+
+.intravert-space .background {
+    background-image: url(https://statamic.com/img/branding/palms.jpg);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    opacity: .4;
+    mix-blend-mode: color-burn;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.intravert-space .copy {
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 10px;
+}
+.intravert-space .copy-title {
+    text-align: right;
+    margin-bottom: .3em;
 }

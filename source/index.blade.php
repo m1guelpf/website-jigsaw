@@ -17,10 +17,6 @@
 <meta property="twitter:image" content="http://m1guelpf.me/20e6eaff9a2e/Image%2525202019-02-05%252520at%2525207.32.17%252520PM.png">
 @endpush
 
-@section('top')
-    <div class="intravert-space" id="space-8e50cd520c4"></div>
-@endsection
-
 @section('body')
             <div class="section-featured no-featured-image wrap">
                 <div class="featured-wrap flex" style="padding: 0;">
@@ -53,5 +49,5 @@
 @endsection
 
 @push('scripts')
-    <script defer src="https://intravert.co/serve/8e50cd520c.4.js"></script>
+    {{-- <script src="https://intravert.co/serve/8e50cd520c.4.js"></script> --}}
 @endpush

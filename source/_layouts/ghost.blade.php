@@ -29,7 +29,13 @@
 </head>
 
 <body class="global-hash-dark-version @yield('body-class', 'post-template') @isset($page->tags) @foreach($page->tags as $tag) tag-{{ $tag['slug'] }}@endforeach @endisset">
-    @yield('top')
+    <a class="intravert-space-link" href="https://intravert.co/redirect/https%253A%252F%252Fstatamic.com">
+        <div class="intravert-space" id="space-8e50cd520c4">
+            <div class="intravert-space background"></div>
+            <p class="copy copy-title">Sponsored by <b>Statamic</b>, the flat, flexible & rad CMS.</p>
+            <p class="copy">Build better, easier to manage websites. Enjoy radical efficiency.</p>
+        </div>
+    </a>
     {{-- @if ($page->production)
         <div id="codefund" style="position:fixed;z-index:999;"></div>
     @endif --}}

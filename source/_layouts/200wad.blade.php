@@ -6,10 +6,6 @@
 <link rel="amphtml" href="{{ $page->getUrl().'/amp' }}" />
 @endpush
 
-@section('top')
-    <div class="intravert-space" id="space-8e50cd520c4"></div>
-@endsection
-
 @section('body')
 <article>
     <div class="section-featured no-featured-image">
@@ -84,5 +80,4 @@
     <script>{{ inline(mix('js/post.js', 'assets/build')) }}</script>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>commentBox('5675594515742720-proj');</script>
-    <script defer src="https://intravert.co/serve/8e50cd520c.4.js"></script>
 @endpush

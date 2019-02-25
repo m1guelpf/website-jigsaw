@@ -11,10 +11,11 @@ mix.webpackConfig({
         build.browserSync(),
         build.watch([
             'config.php',
-            'source/**/*.md',
-            'source/**/*.php',
-            'source/**/*.scss',
-            'source/**/*.css',
+            // 'source/**/*.md',
+            // 'source/**/*.php',
+            // 'source/**/*.scss',
+            'source/_assets/css/*.css',
+            'source/index.blade.php',
         ]),
     ],
 });
