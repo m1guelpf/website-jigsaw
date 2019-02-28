@@ -33,7 +33,7 @@
         <div class="intravert-space" id="space-8e50cd520c4">
             <div class="intravert-space background"></div>
             <p class="copy copy-title">Sponsored by <b>Statamic</b>, the flat, flexible & rad CMS.</p>
-            <p class="copy">Build better, easier to manage websites. Enjoy radical efficiency.</p>
+            <p class="copy copy-body">Build better, easier to manage websites. Enjoy radical efficiency.</p>
         </div>
     </a>
     {{-- @if ($page->production)

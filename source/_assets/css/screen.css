@@ -4320,3 +4320,12 @@ iframe {
     text-align: right;
     margin-bottom: .3em;
 }
+.intravert-space .copy-body {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .intravert-space .copy-body {
+        display: block;
+    }
+}
