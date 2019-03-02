@@ -48,6 +48,8 @@
     </div>
     <div class="section-post wrap">
         <div class="post-wrap {{ $page->cover_image != null ? '':'no-image' }}">
+            <p data-blogcast-show style="display:none;">Too tired to read? Listen to this article instead:</p>
+            <p id="blogcast"></p>
             @yield('content')
         </div>
         <div class="post-meta">
@@ -93,6 +95,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://blogcast.host/embed.js?url={{ $page->getUrl() }}/"></script>
     <script>{{ inline(mix('js/post.js', 'assets/build')) }}</script>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>commentBox('5675594515742720-proj');</script>
