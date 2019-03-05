@@ -74,8 +74,11 @@ return [
             'path' => ['web' => '{slug}', 'amp' => '{slug}/amp'],
             'items' => function () use ($ghost) {
                 $posts = $ghost->getPosts('tags', null, null, 'all')['posts'];
-
-                return collect($posts)->map(function ($post) {
+                return collect($posts)->reject(function ($post) {
+                    return collect($post['tags'])->map(function ($tag) {
+                        return $tag['name'];
+                    })->contains('#philosophy');
+                })->map(function ($post) {
                     return [
                         'extends' => ['web' => is_null($post['custom_template']) || $post['custom_template'] == '' ? '_layouts.post' : str_replace('custom-', '_layouts.custom.', $post['custom_template']), 'amp' => '_layouts.amp'],
                         'title' => $post['title'],
