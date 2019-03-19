@@ -6,20 +6,20 @@
 
 @push('meta')
 <meta name="title" content="Daily Writing - Miguel Piedrafita">
-<meta name="description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+<meta name="description" content="I'm a 17-year-old who has been writing daily for 63 days.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ $page->getUrl() }}">
 <meta property="og:title" content="Daily Writing - Miguel Piedrafita">
-<meta property="og:description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+<meta property="og:description" content="I'm a 17-year-old who has been writing daily for 63 days.">
 <meta property="og:image" content="http://m1guelpf.me/330a79dae378/Image%2525202019-02-05%252520at%2525207.37.04%252520PM.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ $page->getUrl() }}">
 <meta property="twitter:title" content="Daily Writing - Miguel Piedrafita">
-<meta property="twitter:description" content="I'm a 16-year-old who has been writing daily for 63 days.">
+<meta property="twitter:description" content="I'm a 17-year-old who has been writing daily for 63 days.">
 <meta property="twitter:image" content="http://m1guelpf.me/330a79dae378/Image%2525202019-02-05%252520at%2525207.37.04%252520PM.png">
 @endpush
 
@@ -27,7 +27,7 @@
             <div class="section-featured no-featured-image wrap">
                 <div class="featured-wrap flex" style="padding: 0;">
                     <article class="introduction">
-                        <h2>👋 Hi! I'm a 16-year-old who has been <i>writing daily</i> for {{ $page->written_days }} days.</h2>
+                        <h2>👋 Hi! I'm a 17-year-old who has been <i>writing daily</i> for {{ $page->written_days }} days.</h2>
                         <div class="item-meta white">
                             <p>You can learn more about me on
                                 <a href="{{ $page->getBaseUrl() }}">my website</a>, follow me on
