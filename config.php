@@ -11,7 +11,7 @@ return [
     'production' => env('NODE_ENV', 'production') == 'production',
     'siteName' => 'Miguel Piedrafita',
     'cover' => 'https://i.imgur.com/74A2KrN.jpg',
-    'siteDescription' => '16-year-old developer & maker',
+    'siteDescription' => '17-year-old developer & maker',
     'siteAuthor' => 'Miguel Piedrafita',
 
     'navigation' => [
