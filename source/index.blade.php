@@ -21,7 +21,7 @@
             <div class="section-featured no-featured-image wrap">
                 <div class="featured-wrap flex" style="padding: 0;">
                     <article class="introduction">
-                        <h2>👋 Hi! I'm a 16-year-old who loves to <i>make stuff</i>.</h2>
+                        <h2>👋 Hi! I'm a 17-year-old who loves to <i>make stuff</i>.</h2>
                         <div class="item-meta white">
                             <p>I'm the co-founder of
                                 <a href="https://maker.army" target="_blank">Maker Army</a>, a modern platform built to provide makers with financial stability and overall, better the future of digital
