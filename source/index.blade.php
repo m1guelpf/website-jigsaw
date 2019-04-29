@@ -23,17 +23,15 @@
                     <article class="introduction">
                         <h2>👋 Hi! I'm a 16-year-old who loves to <i>make stuff</i>.</h2>
                         <div class="item-meta white">
-                            <p>I'm the co-founder of
-                                <a href="https://maker.army" target="_blank">Maker Army</a>, a modern platform built to provide makers with financial stability and overall, better the future of digital
-                                creativity.</p>
-                            <p>I made
-                                <a href="https://unmarkdocs.co" target="_blank">UnMarkDocs</a>, a web application that empowers you to build beautiful, collaborative documentation using super-powered Markdown.</p>
-                            <p>I've also created
-                                <a href="https://coderyouth.club" target="_blank">code community for teenagers</a>, built <a href="https://snaptier.co" target="_blank">a startup with two other teenagers</a>, and <a href="https://ghuser.io/m1guelpf"
-                                    target="_blank">contributed to over 350 open source projects</a>.</p>
-                            <p>You can checkout my open-source projects on
-                                <a href="https://github.com/m1guelpf" target="_blank">GitHub</a>, follow me on
-                                <a href="https://twitter.com/m1guelpf" target="_blank">Twitter</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}/patreon">helping me achieve my dream</a> :)</p>
+                            <p>I'm created
+                                <a href="https://blogcast.host" target="_blank">Blogcast</a>, a service that generates audio versions of your articles.</p>
+                            <p>Before that, I made
+                                <a href="https://unmarkdocs.co" target="_blank">UnMarkDocs</a>, a web application that empowers you to build beautiful, collaborative documentation using super-powered Markdown (that was my first "big" project).</p>
+                            <p>I've created
+                                <a href="https://coderyouth.club" target="_blank">code community for teenagers</a>, and <a href="https://ghuser.io/m1guelpf"
+                                    target="_blank">contributed to over 350 open source projects</a> and started many cool projects I unfortunately didn't finish, like Snaptier or Maker Army.</p>
+                            <p>You can <a href="https://twitter.com/m1guelpf" target="_blank">follow me on Twitter</a> for updates on what I'm working on, cool tips and lots of interesting retweets, check out my open-source projects on
+                                <a href="https://github.com/m1guelpf" target="_blank">GitHub</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}/patreon">becoming a Patron</a> and helping me achieve my dream :)</p>
                         </div>
                     </article>
                 </div>
