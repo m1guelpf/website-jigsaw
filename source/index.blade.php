@@ -21,7 +21,7 @@
             <div class="section-featured no-featured-image wrap">
                 <div class="featured-wrap flex" style="padding: 0;">
                     <article class="introduction">
-                        <h2>👋 Hi! I'm a 16-year-old who loves to <i>make stuff</i>.</h2>
+                        <h2>👋 Hi! I'm a 17-year-old who loves to <i>make stuff</i>.</h2>
                         <div class="item-meta white">
                             <p>I'm created
                                 <a href="https://blogcast.host" target="_blank">Blogcast</a>, a service that generates audio versions of your articles.</p>
