@@ -27,9 +27,9 @@
                                 <a href="https://blogcast.host" target="_blank">Blogcast</a>, a service that generates audio versions of your articles.</p>
                             <p>Before that, I made
                                 <a href="https://unmarkdocs.co" target="_blank">UnMarkDocs</a>, a web application that empowers you to build beautiful, collaborative documentation using super-powered Markdown (that was my first "big" project).</p>
-                            <p>I've created
+                            <p>I've also created a
                                 <a href="https://coderyouth.club" target="_blank">code community for teenagers</a>, and <a href="https://ghuser.io/m1guelpf"
-                                    target="_blank">contributed to over 350 open source projects</a> and started many cool projects I unfortunately didn't finish, like Snaptier or Maker Army.</p>
+                                    target="_blank">contributed to over 350 open source projects</a>. I've also started many cool projects I unfortunately didn't finish, like Snaptier or Maker Army.</p>
                             <p>You can <a href="https://twitter.com/m1guelpf" target="_blank">follow me on Twitter</a> for updates on what I'm working on, cool tips and lots of interesting retweets, check out my open-source projects on
                                 <a href="https://github.com/m1guelpf" target="_blank">GitHub</a>, or read my articles below. And, if you like what I do, please consider <a href="{{ $page->getBaseUrl() }}/patreon">becoming a Patron</a> and helping me achieve my dream :)</p>
                         </div>
