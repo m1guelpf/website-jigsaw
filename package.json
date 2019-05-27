@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "dotenv": "^6.2.0",
-        "fuse.js": "^3.3.0",
+        "fuse.js": "^3.4.4",
         "hamburgers": "^1.1.3",
         "instant.page": "^1.1.0",
         "ityped": "^1.0.3",
