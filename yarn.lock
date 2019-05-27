@@ -3273,10 +3273,10 @@ function-bind@^1.1.0, function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-fuse.js@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.3.0.tgz#1e4fe172a60687230fb54a5cb247eb96e2e7e885"
-  integrity sha512-ESBRkGLWMuVkapqYCcNO1uqMg5qbCKkgb+VS6wsy17Rix0/cMS9kSOZoYkjH8Ko//pgJ/EEGu0GTjk2mjX2LGQ==
+fuse.js@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.4.tgz#f98f55fcb3b595cf6a3e629c5ffaf10982103e95"
+  integrity sha512-pyLQo/1oR5Ywf+a/tY8z4JygnIglmRxVUOiyFAbd11o9keUDpUJSMGRWJngcnkURj30kDHPmhoKY8ChJiz3EpQ==
 
 gauge@~2.7.3:
   version "2.7.4"
