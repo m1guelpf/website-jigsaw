@@ -24,7 +24,7 @@
         "dotenv": "^6.2.0",
         "fuse.js": "^3.4.4",
         "hamburgers": "^1.1.3",
-        "instant.page": "^1.1.0",
+        "instant.page": "^1.2.2",
         "ityped": "^1.0.3",
         "lightense-images": "^1.0.5",
         "netlify-lambda": "^1.4.13",
