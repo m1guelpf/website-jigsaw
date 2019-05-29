@@ -4169,10 +4169,10 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lightense-images@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/lightense-images/-/lightense-images-1.0.5.tgz#f12b492a06c4b475e7fe9abf941f72ff78a8b09f"
-  integrity sha512-CZ1E/VNmcWCJVtJ/LLfYHIis/1hYwRQRJAGo4a7/S3jcAMcpcf8s7r3CgcC8TU5JWpiu6pSSPftS9DsOzZ1kww==
+lightense-images@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/lightense-images/-/lightense-images-1.0.8.tgz#d5753a5e6e1c38009dcaf077c8766f797ac820dc"
+  integrity sha512-7MQjzl84wNWawAi74BU07oxjkttu6qI6JswX9e3CSy5tQLMl2I9TygA7CRM6DgbOltJxOBTOzGU4Z2MtUrAGKA==
 
 limiter@^1.0.5:
   version "1.1.3"
