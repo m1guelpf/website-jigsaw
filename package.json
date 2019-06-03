@@ -13,7 +13,7 @@
         "cross-env": "^5.2.0",
         "extra-watch-webpack-plugin": "^1.0.3",
         "hasbin": "^1.2.3",
-        "laravel-mix": "^4.0.15",
+        "laravel-mix": "^4.0.16",
         "node-cmd": "^3.0.0",
         "sass": "^1.20.1",
         "sass-loader": "^7.1.0",
