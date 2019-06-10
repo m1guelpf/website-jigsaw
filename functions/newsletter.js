@@ -14,7 +14,7 @@ exports.handler = async (event, context, callback) => {
         })
     }
 
-    const body = querystring.parse(event.body)
+    const body = querystring.parse(atob(event.body))
 
     await mailerlite.subscribeUser(body.email)
 
