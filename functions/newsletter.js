@@ -5,7 +5,7 @@ require('dotenv').load();
 
 export async function handler(event, context, callback) {
     if (event.httpMethod !== 'POST') { 
-        return callback(null, {
+        callback(null, {
             statusCode: 301,
             headers: {
                 Location: 'https://miguelpiedrafita.com'
