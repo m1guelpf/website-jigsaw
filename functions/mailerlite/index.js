@@ -1,4 +1,4 @@
-import client from './client';
+const client = require('./client')
 
 const subscribeUser = email => {
     const group = process.env.MAILERLITE_GROUP
@@ -17,7 +17,7 @@ const unsubscribeUser = email => {
     })
 }
 
-export default {
+export {
     subscribeUser,
     unsubscribeUser
 }

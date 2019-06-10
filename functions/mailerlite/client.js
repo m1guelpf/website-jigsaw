@@ -1,6 +1,5 @@
 import request from 'request-promise';
 
-
 const makeRequest = (method, path, body, parameters) => {
     return request({
         method: method,
@@ -33,7 +32,7 @@ const Delete = path => {
 }
 
 /* Export the submodule. */
-export default {
+export {
     Get,
     Post,
     Put,

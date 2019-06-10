@@ -1,9 +1,9 @@
-import querystring from 'querystring'
-import mailerlite from './mailerlite'
+const querystring = require('querystring');
+const { subscribeUser } = require ('./mailerlite');
 
 require('dotenv').load();
 
-exports.handler = async (event, context, callback) => {
+export async function handler(event, context, callback) {
     if (event.httpMethod !== 'POST') { 
         return callback(null, {
             statusCode: 301,
@@ -16,7 +16,7 @@ exports.handler = async (event, context, callback) => {
 
     const body = querystring.parse(new Buffer(event.body, 'base64').toString('ascii'))
 
-    await mailerlite.subscribeUser(body.email)
+    await subscribeUser(body.email)
 
     callback(null, {
         statusCode: 301,
