@@ -5,12 +5,12 @@ require('dotenv').load();
 
 exports.handler = async (event, context, callback) => {
     if (event.httpMethod !== 'POST') { 
-        callback(null, {
+        return callback(null, {
             statusCode: 301,
             headers: {
                 Location: 'https://miguelpiedrafita.com'
             },
-            body: null
+            body: '',
         })
     }
 
@@ -18,11 +18,11 @@ exports.handler = async (event, context, callback) => {
 
     await mailerlite.subscribeUser(body.email)
 
-    callback(null, {
+    return callback(null, {
         statusCode: 301,
         headers: {
             Location: 'https://miguelpiedrafita.com/subscribed'
         },
-        body: null
+        body: ''
     });
 }
