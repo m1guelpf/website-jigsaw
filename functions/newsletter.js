@@ -14,15 +14,15 @@ exports.handler = async (event, context, callback) => {
         })
     }
 
-    const body = querystring.parse(atob(event.body))
+    const body = querystring.parse(new Buffer(event.body, 'base64').toString('ascii'))
 
     await mailerlite.subscribeUser(body.email)
 
-    return callback(null, {
+    callback(null, {
         statusCode: 301,
         headers: {
             Location: 'https://miguelpiedrafita.com/subscribed'
         },
-        body: ''
+        body: 'Done!'
     });
 }
