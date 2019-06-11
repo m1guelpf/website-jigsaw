@@ -1,4 +1,3 @@
-
 @extends('_layouts.ghost')
 
 @push('meta')
@@ -24,9 +23,9 @@
                 <div class="page-subscribe-content flex">
                     <div class="subscribe-wrap">
                         <h3>Subscribe to {{ $page->siteName }}</h3>
-                        <form method="POST" action="https://miguelpiedrafita.com/.netlify/functions/newsletter">
+                        <form id="newsletterForm" method="POST" target="_blank">
                             <div class="form-group">
-                                <input class="subscribe-email" type="email" name="email" autofocus="autofocus" placeholder="Your email address" required/>
+                                <input class="subscribe-email" type="email" id="email" autofocus="autofocus" placeholder="Your email address" required/>
                             </div>
                             <button class="" type="submit"><span>Subscribe</span></button>
                         </form>
@@ -38,5 +37,21 @@
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            document.getElementById('newsletterForm').onsubmit = function(e) {
+                e.preventDefault()
+
+                axios.post('https://app.mailerlite.com/webforms/submit/d4j8l4?ml-submit=1&ajax=1&guid=baa9f0fc-f6ab-3081-475a-3dca456bfbdf&fields[email]=' + document.getElementById('email').value).then(function(response) {
+                    if (response.data.success) {
+                        window.location.href = 'https://miguelpiedrafita.com/subscribed';
+                    } else {
+                        alert('something went wrong. Please try again or DM me on Twitter :)')
+                    }
+                }).catch(function() {
+                        alert('something went wrong. Please try again or DM me on Twitter :)')
+                })
+            }
+        </script>
     </body>
 </html>

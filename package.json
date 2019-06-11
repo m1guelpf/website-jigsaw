@@ -4,8 +4,7 @@
         "local": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --env=local --config=node_modules/laravel-mix/setup/webpack.config.js",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --env=production --config=node_modules/laravel-mix/setup/webpack.config.js",
         "dev": "npm run local",
-        "watch": "npm run local -- --watch",
-        "lambda": "yarn netlify-lambda build functions"
+        "watch": "npm run local -- --watch"
     },
     "devDependencies": {
         "browser-sync": "^2.26.7",
@@ -21,16 +20,11 @@
         "yargs": "^13.2.4"
     },
     "dependencies": {
-        "dotenv": "^8.0.0",
         "fuse.js": "^3.4.5",
         "hamburgers": "^1.1.3",
         "instant.page": "^1.2.2",
         "ityped": "^1.0.3",
         "lightense-images": "^1.0.8",
-        "netlify-lambda": "^1.4.13",
-        "querystring": "^0.2.0",
-        "reframe.js": "^2.2.5",
-        "request": "^2.88.0",
-        "request-promise": "^4.2.4"
+        "reframe.js": "^2.2.5"
     }
 }
