@@ -23,13 +23,21 @@
         "@type" : "Person",
         "name" : "Miguel Piedrafita",
         "url" : "https://miguelpiedrafita.com",
+        "image": {
+        	"@type": "ImageObject",
+        	"url": "https://avatars.io/twitter/m1guelpf"
+        },
         "sameAs": [
             "https://twitter.com/m1guelpf"
         ]
     },
     "publisher": {
         "@type": "Organization",
-        "name": "Miguel Piedrafita"
+        "name": "Miguel Piedrafita",
+        "logo": {
+        	"@type": "ImageObject",
+        	"url": "https://avatars.io/twitter/m1guelpf"
+        }
     },
     "datePublished" : "{{ $page->getDate()->format(DATE_ATOM) }}",
     "url" : "{{ $page->getUrl() }}",
