@@ -16,14 +16,19 @@
   "@context" : "http://schema.org",
   "@type" : "Article",
   "name" : "{{ $page->title }}",
+  "headline" : "{{ $page->title }}",
 @if($page->cover_image != null)
-  "image": "$page->cover_image",
+  "image": "{{ $page->cover_image }}",
 @endif
   "author" : {
     "@type" : "Person",
     "name" : "Miguel Piedrafita"
   },
-  "datePublished" : "{{ $page->getDate()->format('YYYY-MM-DD') }}",
+  "publisher" : {
+    "@type" : "Person",
+    "name" : "Miguel Piedrafita"
+  },
+  "datePublished" : "{{ $page->getDate()->format('Y-m-d') }}",
   "url" : "{{ $page->getUrl() }}",
   "keywords": "{{ collect($page->tags)->where('internal', false)->implode(' ') }}", 
   "description": "{{ $page->meta['description'] ?? $page->excerpt }}"
