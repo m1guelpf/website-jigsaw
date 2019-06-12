@@ -15,23 +15,30 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Article",
-  "name" : "{{ $page->title }}",
   "headline" : "{{ $page->title }}",
 @if($page->cover_image != null)
   "image": "{{ $page->cover_image }}",
 @endif
-  "author" : {
-    "@type" : "Person",
-    "name" : "Miguel Piedrafita"
-  },
-  "publisher" : {
-    "@type" : "Person",
-    "name" : "Miguel Piedrafita"
-  },
-  "datePublished" : "{{ $page->getDate()->format('Y-m-d') }}",
-  "url" : "{{ $page->getUrl() }}",
-  "keywords": "{{ collect($page->tags)->where('internal', false)->implode(' ') }}", 
-  "description": "{{ $page->meta['description'] ?? $page->excerpt }}"
+    "author" : {
+        "@type" : "Person",
+        "name" : "Miguel Piedrafita",
+        "url" : "https://miguelpiedrafita.com",
+        "sameAs": [
+            "https://twitter.com/m1guelpf"
+        ]
+    },
+    "publisher" : {
+        "@type" : "Person",
+        "name" : "Miguel Piedrafita"
+    },
+    "datePublished" : "{{ $page->getDate()->format(DATE_ATOM) }}",
+    "url" : "{{ $page->getUrl() }}",
+    "keywords": "{{ collect($page->tags)->where('internal', false)->implode(' ') }}", 
+    "description": "{{ $page->meta['description'] ?? $page->excerpt }}",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ $page->getBaseUrl() }}"
+    }
 }
 </script>
 @endpush
