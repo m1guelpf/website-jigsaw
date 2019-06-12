@@ -11,6 +11,24 @@
 @push('meta')
 <link rel="amphtml" href="{{ $page->getUrl().'/amp' }}" />
     @include('_components.meta')
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "{{ $page->title }}",
+@if($page->cover_image != null)
+  "image": "$page->cover_image",
+@endif
+  "author" : {
+    "@type" : "Person",
+    "name" : "Miguel Piedrafita"
+  },
+  "datePublished" : "{{ $page->getDate()->format('YYYY-MM-DD') }}",
+  "url" : "{{ $page->getUrl() }}",
+  "keywords": "{{ collect($page->tags)->where('internal', false)->implode(' ') }}", 
+  "description": "{{ $page->meta['description'] ?? $page->excerpt }}"
+}
+</script>
 @endpush
 
 @push('head', base64_decode($page->inject['head']))
