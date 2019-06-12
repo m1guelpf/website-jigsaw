@@ -18,5 +18,5 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="{{ $page->siteName }}" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="{{ collect($page->tags)->implode('name', ', ') }}" />
+    <meta name="twitter:data2" content="{{ collect($page->tags)->where('internal', false)->implode('name', ', ') }}" />
     <meta name="twitter:site" content="@m1guelpf" />
